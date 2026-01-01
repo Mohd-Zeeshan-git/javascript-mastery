@@ -1,16 +1,31 @@
 // Object in JavaScript can be created using object literals or the Object constructor
 // Creating an object using object literal
+const mySym=Symbol("id");
 const person = {
   name: "Alice",
   age: 30,
+  [mySym]: 12345, // using symbol as a property key
   greet: function() { // method to greet 
     console.log("Hello, my name is " + this.name);
   }
 };
+
 console.log("Person object:", person);
 person.greet();
+console.log(person.name);
+console.log(person["name"]);
+console.log(person[mySym]); // accessing symbol property
 
+// object freeze
+person.address="New York"; // adding new property
+// Object.freeze(person);
+person.age=35; // trying to modify existing property (will not work)
+console.log("Person object after freeze attempt:", person);
+
+console.log(person.greet(this.name));
 // Creating an object using Object constructor
+// whenever we define an object using new keyword it is called instance of object 
+//object created using constructor is singleton 
 const car = new Object();
 car.make = "Toyota";
 car.model = "Camry";
