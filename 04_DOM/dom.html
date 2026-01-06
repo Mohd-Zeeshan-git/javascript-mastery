@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="day">monday</div>
+        <div class="day">tuesday</div>
+        <div class="day">wednessday</div>
+        <div class="day">thursday</div>
+        <div class="day">friday</div>
+    </div>
+</body>
+<script> 
+    const parent = document.querySelector('.parent');
+    console.log(parent); //retrieves the parent div with class 'parent' and it all its child elements
+    console.log(parent.children);//retrieves the HTMLCollection of child elements of the parent div
+    console.log(parent.children[1]);//retrieves the second child element of the parent div (tuesday)
+    console.log(parent.firstElementChild);//retrieves the first child element of the parent div (monday)
+    console.log(parent.lastElementChild);//retrieves the last child element of the parent div (friday)
+    console.log(parent.firstElementChild.textContent);//retrieves the text content of the first child element of the parent div (monday)
+    console.log(parent.children[0].innerHTML);
+    console.log(parent.children[0].innerText);//both innerHTML and innerText retrieves the text content of the first child element of the parent div (monday)
+
+    for(let i=0; i<parent.children.length; i++){
+        console.log(parent.children[i].textContent.toUpperCase());
+    }
+
+    parent.children[2].textContent = "WEDNESDAY UPDATED";//updates the text content of the third child element of the parent div (wednessday)
+    parent.children[0].style.color = "red";//changes the text color of the first child element of the parent div (monday) to red
+
+    const day =document.querySelector('.day');
+    console.log(day);
+    console.log(day.parentElement); //retrieves the parent element of the first element with class 'day' (parent div)
+    console.log(day.previousElementSibling);//retrieves the previous sibling element of the first element with class 'day' (null for monday)
+    console.log(day.nextElementSibling);//retrieves the next sibling element of the first element with class 'day' (tuesday)
+    
+    console.log("Nodes :",parent.childNodes);
+    
+</script>
+</html>

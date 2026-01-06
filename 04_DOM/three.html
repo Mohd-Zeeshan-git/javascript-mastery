@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Edit</title>
+</head>
+<body>
+    <ul class="lang">
+        <li>JavaScript</li>
+       
+    </ul>
+
+</body>
+<script>
+    function addLanguage(langname){
+    //     const ul = document.querySelector('ul');//selects the first ul element in the document
+    //     const li = document.createElement('li');//creates a new li element
+    //     const text = document.createTextNode(langname);//creates a text node with the specified text
+    //     li.appendChild(text);//appends the text node to the newly created li element
+    //     ul.appendChild(li);//appends the newly created li element to the ul element
+
+        const li= document.createElement('li');
+        li.innerText= `${langname}`; // =langname  sets the text content of the newly created li element it traverses to the li element and sets its text content to the value of langname  not much optimized
+        document.querySelector('.lang').appendChild(li); // it traverses to the ul with class lang and appends the newly created li element to it
+    }
+    addLanguage('Python');
+    addLanguage('C++');
+    
+    function addOptiLanguage(langname){
+        document.querySelector('.lang').innerHTML += `<li>${langname}</li>`; //optimized way to add new li elements to the ul with class lang using innerHTML
+    }
+    addOptiLanguage('Java');
+    function addAOptiLanguage(langname){
+    const li=document.createElement('li');
+    li.appendChild(document.createTextNode(langname));//creates a text node with the specified text and appends it to the newly created li element
+    document.querySelector('.lang').appendChild(li);//appends the newly created li element to the ul element with class lang
+    }    addAOptiLanguage('Ruby');
+     
+     //edit
+    //  const firstLi= document.querySelector('.lang li');//selects the first li element within the ul with class lang
+    const secondlang=document.querySelector('li:nth-child(2)');//selects the second li element within the ul with class lang
+        // secondlang.innerText='C#';//edits the text content of the selected li element
+        // secondlang.appendChild(document.createTextNode(' (C Sharp)'));//appends additional text to the selected li element
+        // const ul=document.querySelector('.lang');
+        // ul.appendChild(secondlang)
+
+        const li = document.createElement('li')
+        li.textContent="c#"
+        secondlang.replaceWith(li)
+
+        //edit
+        const firstlang= document.querySelector('li:first-child');
+        firstlang.outerHTML= "<li>Typescript</li>";
+
+        //delete
+        const lastlang = document.querySelector('li:last-child');
+        lastlang.remove();//delete 
+</script>
+</html>
