@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>coder zee</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("hello");
+        
+    // },2000)// it need a callback function handler and a timeout
+
+    // const display= function(){
+    //     console.log("hello");
+    // }
+    // setTimeout(display,2000)
+
+    // const changeDoc=document.querySelector('h1').innerHTML="js mastery with bro" //it will change directly
+    const changeDo= function(str){
+        // document.querySelector('h1').innerHTML="master js"
+        console.log(`my name is ${str}`)
+    };
+    // setInterval(changeDoc,1000,"zeeshan")
+// const changeMe=setInterval(changeDoc,1000 ,"zeeshan")
+
+
+// clearInterval(changeMe)//it need reference for the setinterval method 
+//it is not very best because no need for setinterval if we are going to clear that we need to activate when an event occur
+
+let changeMy;//globally define it so another function can also acces it 
+document.querySelector('#start').addEventListener('click',function(){
+    // let changeMy=setInterval(changeDo,3000 ,"zeeshan");// this work properly but  becuse it scope is not known to clear interval define it globally
+    changeMy=setInterval(changeDo,3000 ,"zeeshan");
+})
+document.querySelector('#stop').addEventListener('click',function(){
+    clearInterval(changeMy); //
+    console.log("stoped");
+})
+
+
+
+
+
+</script>
+</html>

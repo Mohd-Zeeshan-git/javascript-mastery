@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>coder zee</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("hello");
+        
+    // },2000)// it need a callback function handler and a timeout
+
+    // const display= function(){
+    //     console.log("hello");
+    // }
+    // setTimeout(display,2000)
+
+    // const changeDoc=document.querySelector('h1').innerHTML="js mastery with bro" //it will change directly
+    const changeDoc= function(){
+        document.querySelector('h1').innerHTML="master js"
+    }
+    // setTimeout(changeDoc,2000)
+const changeMe=setTimeout(changeDoc,2000)
+
+// clearTimeout(changeMe)//it need reference for the settimeout method 
+//it is not very best because no need for settimeout if we are going to clear that we need to activate when an event occur
+
+document.querySelector('#stop').addEventListener('click',function(){
+    clearTimeout(changeMe)
+    console.log("stoped");
+})
+
+
+
+
+
+</script>
+</html>
