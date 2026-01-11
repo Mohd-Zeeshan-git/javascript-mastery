@@ -54,7 +54,10 @@ const promiseFour = new Promise((resolve,reject)=>{
     setTimeout(()=>{
         const error= true;
         if(!error){
-            resolve(username:"zeeshan",password:"123444");
+            resolve({username:"zeeshan",password:"123444"});
+        }
+        else {
+            reject("ERROR: something went wrong")
         }
     },1000)
 }).then((user)=>{
@@ -63,6 +66,55 @@ const promiseFour = new Promise((resolve,reject)=>{
 }).then((username)=>{
     console.log(username);
 }).catch((err)=>{
-    console.log(err);
-    
+    console.log(err);  
+}).finally(()=> {console.log("promise is either resolved or rejected");}
+)
+
+
+const promiseFive = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        const error= true
+        if(!error){
+            resolve({username:"zeeshan",password:"123444"});
+        }
+        else {
+            reject("ERROR: something went wrong")
+        }
+    },1000)
 })
+
+async function consumePromisefive(){
+    // const response = await promiseFive //no need to call
+    // console.log(response);  //UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason "ERROR: something went wrong".
+    // //insted write in try catch block
+
+    try {
+         const response = await promiseFive //no need to call
+    console.log(response); 
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+consumePromisefive()
+
+
+// async function getAllUser(){
+//     const response = await fetch('https://jsonplaceholder.typicode.com/users') //it return a promise 
+//     // const data =response.json() //this will give error becouse it takes time to change data in json so await i needed
+//    try {
+//      const data = await response.json();
+//      console.log(data);
+//    } catch (error) {
+//     console.log("E:",error);
+//    }
+// }
+// getAllUser() 
+
+//using then catch
+fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(json => console.log(json))
+      .catch(error=>console.log(error))
+
