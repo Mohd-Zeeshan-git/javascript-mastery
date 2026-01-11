@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const requestUrl= 'https://randomuser.me/api/';
+    const xhr= new XMLHttpRequest()
+    xhr.open('GET',requestUrl)
+    xhr.onreadystatechange= function(){
+    console.log(xhr.readyState);
+    if(xhr.readyState===4){
+        console.log(this.response); //this will return the response of current context 
+        // const data = this.response;  you can name anything here we use response as name
+        // console.log(typeof data);//string every time when response come from url it is in form of string
+        //to resove we use JSON.parse method to change string to JSON
+        const data = JSON.parse(this.response);
+        // console.log(typeof data);//object
+        
+        console.log(data.results);//this will give undefined because it can not access the object 
+        
+        
+    }
+    }
+    xhr.send();
+</script>
+</html>

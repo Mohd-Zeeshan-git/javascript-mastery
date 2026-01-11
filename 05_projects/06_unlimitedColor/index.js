@@ -11,6 +11,8 @@ const randomColor=function(){
 
 
 let intervalId;
+// console.log(intervalId); //undefined
+
 const startChangingColor= function(){
 
     function changeBgColor(){
@@ -18,8 +20,9 @@ const startChangingColor= function(){
         // console.log("changed");
         
     }
-
-  intervalId = setInterval(changeBgColor,2000);
+    if(!intervalId){
+  intervalId = setInterval(changeBgColor,1000);
+    }
 }
 const stopChangingColor= function(){
 clearInterval(intervalId);
