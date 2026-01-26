@@ -46,7 +46,7 @@ const promiseThree= new Promise((resolve,reject)=>{
 
 promiseThree.then(function(user) ///here we can expect an data by default will come
 {
-    console.log(user);
+    // console.log(user);
     
 })
 
@@ -61,7 +61,7 @@ const promiseFour = new Promise((resolve,reject)=>{
         }
     },1000)
 }).then((user)=>{
-    console.log(user);
+    // console.log(user);
     return user.username;
 }).then((username)=>{
     console.log(username);
@@ -97,11 +97,11 @@ async function consumePromisefive(){
     }
 }
 
-consumePromisefive()
+// consumePromisefive()
 
 
 // async function getAllUser(){
-//     const response = await fetch('https://jsonplaceholder.typicode.com/users') //it return a promise 
+//     const response = await fetch('https://jsonplaceholder.typicode.com/users') //it return a promise  return data in string
 //     // const data =response.json() //this will give error becouse it takes time to change data in json so await i needed
 //    try {
 //      const data = await response.json();
@@ -113,8 +113,25 @@ consumePromisefive()
 // getAllUser() 
 
 //using then catch
-fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(json => console.log(json))
-      .catch(error=>console.log(error))
+// fetch('https://jsonplaceholder.typicode.com/users')  //here data  is in string
+//       .then(response => response.json())
+//       .then(json => console.log(json))
+//       .catch(error=>console.log(error))
+    
 
+
+
+//practice question
+    //   function a (){
+    //     console.log("e")
+    //   }
+    //   a();
+    //   console.log(typeof a)
+
+
+    //   if(function b(){
+    //     console.log("b");
+    //   }){
+    //     console.log("hello")
+    //     console.log(typeof b)
+    //   }
