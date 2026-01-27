@@ -5,7 +5,7 @@ function User(username,password){
     Object.defineProperty(this ,'username',{
         get:function(){
             return this._username.toUpperCase()
-        }
+        },
         set:function(value){
             this._username=value
         }
