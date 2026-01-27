@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="green">green</button>
+    <button id="orange">orange</button>
+</body>
+<script>
+    // document.getElementById('green').onclick=function(){
+    //     document.body.style.backgroundColor='green'
+    // }
+    //   document.getElementById('orange').onclick=function(){
+    //     document.body.style.backgroundColor='orange'
+    // }
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor=`${color}`
+        return function(){
+             document.body.style.backgroundColor=`${color}`
+        }
+    }
+    //  document.getElementById('green').onclick=clickHandler //onclick need executable function not the reference
+    //  document.getElementById('orange').onclick=clickHandler()
+     document.getElementById('green').onclick=clickHandler('green'); //will not work because we are executing or calling the function so we need to change the defination 
+      document.getElementById('orange').onclick=clickHandler('orange')
+
+</script>
+<script>
+
+//     function makeFunc() {
+//   const name = "Mozilla";
+//   function displayName() {
+//     console.log(name);
+//   }
+//   return displayName; //when you return a function then not only its function but also return functions full lexical scope
+// }
+// const myFunc = makeFunc();
+// myFunc();
+
+
+</script>
+</html>

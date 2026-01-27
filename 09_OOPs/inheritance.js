@@ -11,7 +11,7 @@ class user{
 class Teacher extends user{
     constructor(username,password){
         //we can use call method 
-        super(username) //it will do the 
+        super(username) //it will do the  call part of its parent class 
         this.password=password;
     }
     addcourse(){
